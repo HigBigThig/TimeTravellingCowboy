@@ -18,7 +18,7 @@ public class CJBasicMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (Input.GetKey(KeyCode.A))
         {
 
@@ -27,9 +27,9 @@ public class CJBasicMovement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.D))
         {
-    
+
             Velocity.x = 5;
-    
+
         }
         else
         {
@@ -38,18 +38,27 @@ public class CJBasicMovement : MonoBehaviour
 
         }
 
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 1.1f, LayerMask.GetMask("Environment"));
         if (Input.GetKeyDown(KeyCode.Space))
         {
 
             Velocity.y = 10;
 
         }
+        else if (hit.collider == null)
+        {
+
+            Velocity.y -= 10 * Time.deltaTime;
+
+        }
         else
         {
 
-            Velocity.y ///START HERE///
+            Velocity.y = 0;
+        
+        } 
 
-        }
       
 
         transform.position = transform.position + Velocity * Time.deltaTime;
