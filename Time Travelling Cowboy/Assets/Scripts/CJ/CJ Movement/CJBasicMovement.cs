@@ -6,35 +6,47 @@ public class CJBasicMovement : MonoBehaviour
 {
 
     public Rigidbody2D rb;
-    public Vector3 Velocity = new Vector3(0, 0, 0);
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
 
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (Input.GetKey(KeyCode.A))
+        if (rb.velocity.y < -15)
         {
 
-            Velocity.x = -5;
-
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-
-            Velocity.x = 5;
+            rb.gravityScale = 0;
 
         }
         else
         {
 
-            Velocity.x = 0;
+            rb.gravityScale = 2;
+
+        }
+
+        if (Input.GetKey(KeyCode.A))
+        {
+
+            rb.velocity = new Vector2(-5, rb.velocity.y);
+
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+
+            rb.velocity = new Vector2(5, rb.velocity.y);
+
+        }
+        else
+        {
+
+            rb.velocity = new Vector2(0, rb.velocity.y);
 
         }
 
@@ -44,11 +56,6 @@ public class CJBasicMovement : MonoBehaviour
             rb.AddForce(Vector2.up * 500);
 
         }
-
-
-      
-
-        transform.position += Velocity * Time.deltaTime;
 
     }
 }
