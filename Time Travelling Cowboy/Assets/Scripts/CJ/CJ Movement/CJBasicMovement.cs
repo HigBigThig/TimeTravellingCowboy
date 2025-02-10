@@ -6,6 +6,9 @@ public class CJBasicMovement : MonoBehaviour
 {
 
     public Rigidbody2D rb;
+    public bool DoubleJump = false;
+    public bool Grounded = false;
+    public LayerMask laYerMask;
 
     // Start is called before the first frame update
     void Start()
@@ -50,12 +53,40 @@ public class CJBasicMovement : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.75f, laYerMask);
+
+        if (hit) 
         {
 
-            rb.AddForce(Vector2.up * 500);
+            Grounded = true;
+            DoubleJump = false;
 
         }
+        else
+        {
+
+            Grounded = false;
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (Grounded)
+            {
+
+                rb.AddForce(Vector2.up * 500);
+                DoubleJump = true;
+
+            }
+            else if (DoubleJump)
+            {
+
+                rb.velocity = new Vector2(rb.velocity.x, 10);
+                DoubleJump = false;
+
+            }
+        }
+
 
     }
 }
