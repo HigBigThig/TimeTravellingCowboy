@@ -6,11 +6,14 @@ public class EnemyValues : MonoBehaviour
 {
 
     public int Health;
+    private EnemyDeath Death;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        Death = gameObject.GetComponent<EnemyDeath>();
+
     }
 
     // Update is called once per frame
@@ -23,6 +26,12 @@ public class EnemyValues : MonoBehaviour
     {
 
         Health -= 1;
+        if (Health <= 0)
+        {
+
+            Death.Death();
+
+        }
 
     }
 

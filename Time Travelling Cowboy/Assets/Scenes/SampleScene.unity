@@ -581,6 +581,7 @@ MonoBehaviour:
   Enemies:
     serializedVersion: 2
     m_Bits: 128
+  Attack: {fileID: 8060200722220914514, guid: 1e7067c133d80574c87d29c8ce2e7c42, type: 3}
 --- !u!114 &716016124
 MonoBehaviour:
   m_ObjectHideFlags: 0
