@@ -9,6 +9,7 @@ public class CJBasicMovement : MonoBehaviour
     public int JumpsLeft;
     public bool Grounded = false;
     public LayerMask Ground;
+    public bool CJFacingLeft;
 
     // Start is called before the first frame update
     void Start()
@@ -38,12 +39,14 @@ public class CJBasicMovement : MonoBehaviour
         {
 
             rb.velocity = new Vector2(-5, rb.velocity.y);
+            CJFacingLeft = true;
 
         }
         else if (Input.GetKey(KeyCode.D))
         {
 
             rb.velocity = new Vector2(5, rb.velocity.y);
+            CJFacingLeft = false;
 
         }
         else

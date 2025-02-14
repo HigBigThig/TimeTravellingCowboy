@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 716016117}
   - component: {fileID: 716016121}
   - component: {fileID: 716016122}
+  - component: {fileID: 716016123}
   m_Layer: 8
   m_Name: CJ
   m_TagString: Untagged
@@ -516,7 +517,7 @@ Transform:
   m_Children:
   - {fileID: 519420032}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &716016121
 MonoBehaviour:
@@ -536,6 +537,7 @@ MonoBehaviour:
   Ground:
     serializedVersion: 2
     m_Bits: 64
+  CJFacingLeft: 0
 --- !u!114 &716016122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -550,6 +552,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   Ammo: 0
+--- !u!114 &716016123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 716016116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59876d34daeba1e4bbab2c58286ac500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Enemies:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &1093980411
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,7 +821,7 @@ Transform:
   - {fileID: 1495862407}
   - {fileID: 1093980414}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1584520358
 GameObject:
@@ -819,6 +836,7 @@ GameObject:
   - component: {fileID: 1584520360}
   - component: {fileID: 1584520363}
   - component: {fileID: 1584520364}
+  - component: {fileID: 1584520365}
   m_Layer: 7
   m_Name: Scorpion
   m_TagString: Untagged
@@ -946,3 +964,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 716016116}
+--- !u!114 &1584520365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1584520358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7738813b5e8e4e440b3b596cb7ec280d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 100
