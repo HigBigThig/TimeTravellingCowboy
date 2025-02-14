@@ -8,11 +8,14 @@ public class CJValues : MonoBehaviour
     public int Health;
     public int Ammo;
     private int type;
+    private CJDeath Death;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
+        Death = gameObject.GetComponent<CJDeath>();
+
     }
 
     // Update is called once per frame
@@ -30,6 +33,12 @@ public class CJValues : MonoBehaviour
     {
 
         Health -= 1;
+        if (Health <= 0)
+        {
+
+            Death.Death();
+
+        }
 
     }
 
