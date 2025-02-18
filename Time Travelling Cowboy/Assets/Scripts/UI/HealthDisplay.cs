@@ -8,6 +8,8 @@ public class HealthDisplay : MonoBehaviour
 
     [SerializeField] int HeartNumber;
     [SerializeField] Sprite Heart;
+    [SerializeField] Color Blank;
+    [SerializeField] Color White;
     Image Display;
 
     // Start is called before the first frame update
@@ -15,6 +17,7 @@ public class HealthDisplay : MonoBehaviour
     {
         
         Display = GetComponent<Image>();
+        Display.sprite = Heart;
 
     }
 
@@ -27,16 +30,18 @@ public class HealthDisplay : MonoBehaviour
     public void ShowDamage(int NewHealth)
     {
 
-        if (NewHealth <= HeartNumber)
+        if (NewHealth < HeartNumber)
         {
 
             Display.sprite = null;
+            Display.color = Blank;
 
         }
         else
         {
 
             Display.sprite = Heart;
+            Display.color = White;
 
         }
 

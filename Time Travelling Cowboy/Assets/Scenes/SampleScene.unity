@@ -566,6 +566,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 5
   Ammo: 0
+  Heart1: {fileID: 1273059007}
+  Heart2: {fileID: 1804595124}
+  Heart3: {fileID: 1409435719}
+  Heart4: {fileID: 1796845093}
+  Heart5: {fileID: 1394506240}
 --- !u!114 &716016123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,6 +801,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeartNumber: 1
   Heart: {fileID: 21300000, guid: d1d2fb33b91893c44bc4436ad8522d8b, type: 3}
+  Blank: {r: 0, g: 0, b: 0, a: 0}
+  White: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1314799438
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,6 +962,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeartNumber: 5
   Heart: {fileID: 21300000, guid: d1d2fb33b91893c44bc4436ad8522d8b, type: 3}
+  Blank: {r: 0, g: 0, b: 0, a: 0}
+  White: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1409435719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1046,6 +1055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeartNumber: 4
   Heart: {fileID: 21300000, guid: d1d2fb33b91893c44bc4436ad8522d8b, type: 3}
+  Blank: {r: 0, g: 0, b: 0, a: 0}
+  White: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1414361084
 GameObject:
   m_ObjectHideFlags: 0
@@ -1554,6 +1565,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeartNumber: 2
   Heart: {fileID: 21300000, guid: d1d2fb33b91893c44bc4436ad8522d8b, type: 3}
+  Blank: {r: 0, g: 0, b: 0, a: 0}
+  White: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1804595124
 GameObject:
   m_ObjectHideFlags: 0
@@ -1645,3 +1658,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HeartNumber: 3
   Heart: {fileID: 21300000, guid: d1d2fb33b91893c44bc4436ad8522d8b, type: 3}
+  Blank: {r: 0, g: 0, b: 0, a: 0}
+  White: {r: 1, g: 1, b: 1, a: 1}
