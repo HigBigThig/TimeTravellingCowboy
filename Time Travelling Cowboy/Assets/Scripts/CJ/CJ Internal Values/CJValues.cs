@@ -33,6 +33,7 @@ public class CJValues : MonoBehaviour
     {
 
         Health -= 1;
+
         if (Health <= 0)
         {
 
