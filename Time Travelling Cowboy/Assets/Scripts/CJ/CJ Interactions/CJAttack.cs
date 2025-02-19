@@ -6,19 +6,24 @@ public class CJAttack : MonoBehaviour
 {
 
     private CJBasicMovement PlayerMovement;
+    private CJValues AmmoCount;
     public LayerMask Enemies;
     private EnemyValues EnemyHealth;
     public GameObject Attack;
     private GameObject AttackReal;
+    [SerializeField] private GameObject Bullet;
     private AttackDissapearing AttackDisappearing;
     private bool CanAttack;
+    private bool CanShoot;
 
     // Start is called before the first frame update
     void Start()
     {
 
         PlayerMovement = gameObject.GetComponent<CJBasicMovement>();
+        AmmoCount = gameObject.GetComponent<CJValues>();
         CanAttack = true;
+        CanShoot = true;
 
     }
 
@@ -77,6 +82,22 @@ public class CJAttack : MonoBehaviour
             }
 
         }
+
+        if (Input.GetKeyDown(KeyCode.I) && CanShoot)
+        {
+
+            Invoke(nameof(CanShootMethod), 0.3f);
+            CanShoot = false;
+
+            if (AmmoCount.Ammo > 0)
+            {
+
+                Instantiate(Bullet, gameObject.transform);
+                AmmoCount.Ammo -= 1;
+
+            }
+
+        }
         
     }
 
@@ -84,6 +105,13 @@ public class CJAttack : MonoBehaviour
     {
 
         CanAttack = true;
+
+    }
+
+    private void CanShootMethod()
+    {
+
+        CanShoot = true;
 
     }
 

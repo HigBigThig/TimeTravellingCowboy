@@ -7,7 +7,6 @@ public class CJValues : MonoBehaviour
 
     public int Health;
     public int Ammo;
-    private int type;
     private CJDeath Death;
     [SerializeField] GameObject Heart1;
     [SerializeField] GameObject Heart2;
@@ -36,12 +35,7 @@ public class CJValues : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        type = Random.Range(0, 100);
-        if (type == 69)
-        {
 
-            Debug.Log(Health);
-        }
     }
 
     public void TakeDamage()
