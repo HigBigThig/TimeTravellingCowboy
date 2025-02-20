@@ -7,12 +7,17 @@ public class EnemyValues : MonoBehaviour
 
     public int Health;
     private EnemyDeath Death;
+    private Color DefaultColor;
+    private SpriteRenderer Sprite;
+
 
     // Start is called before the first frame update
     void Start()
     {
 
         Death = gameObject.GetComponent<EnemyDeath>();
+        Sprite = gameObject.GetComponent<SpriteRenderer>();
+        DefaultColor = Sprite.color;
 
     }
 
@@ -24,7 +29,8 @@ public class EnemyValues : MonoBehaviour
 
     public void TakeDamage()
     {
-
+        Invoke(nameof(BackToNormal), 0.15f);
+        Sprite.color = Color.red;
         Health -= 1;
         if (Health <= 0)
         {
@@ -32,6 +38,13 @@ public class EnemyValues : MonoBehaviour
             Death.Death();
 
         }
+
+    }
+
+    private void BackToNormal()
+    {
+
+        Sprite.color = DefaultColor;
 
     }
 

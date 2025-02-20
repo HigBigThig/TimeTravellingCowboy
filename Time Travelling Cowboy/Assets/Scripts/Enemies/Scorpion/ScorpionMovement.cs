@@ -7,13 +7,13 @@ public class ScorpionMovement : MonoBehaviour
 
     public float Range;
     public bool MovingLeft;
-
+    private SpriteRenderer Sprite;
 
     // Start is called before the first frame update
     void Start()
     {
 
-
+        Sprite = gameObject.GetComponent<SpriteRenderer>();
 
     }
 
@@ -25,24 +25,28 @@ public class ScorpionMovement : MonoBehaviour
         {
 
             transform.position -= new Vector3(2, 0, 0) * Time.deltaTime;
-            if (transform.position.x < -Range)
+            if (transform.localPosition.x < -Range)
             {
 
                 MovingLeft = false;
 
             }
 
+            Sprite.flipX = false;
+
         }
         else
         {
 
             transform.position += new Vector3(2, 0, 0) * Time.deltaTime;
-            if (transform.position.x > Range)
+            if (transform.localPosition.x > Range)
             {
 
                 MovingLeft = true;
 
             }
+
+            Sprite.flipX = true;
 
         }
 
