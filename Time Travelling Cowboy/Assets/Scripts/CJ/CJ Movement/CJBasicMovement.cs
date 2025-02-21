@@ -56,7 +56,7 @@ public class CJBasicMovement : MonoBehaviour
 
         }
 
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 0.75f, Ground);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, new Vector2(0.95f, 0.75f), 0, Vector2.down, 0.375f, Ground);
 
         if (hit) 
         {
