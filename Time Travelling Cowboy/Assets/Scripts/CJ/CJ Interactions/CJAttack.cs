@@ -15,6 +15,8 @@ public class CJAttack : MonoBehaviour
     private AttackDissapearing AttackDisappearing;
     private bool CanAttack;
     private bool CanShoot;
+    private BreakableWallDestruction BreakableWallHealth;
+    [SerializeField] LayerMask BreakableWall;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,19 @@ public class CJAttack : MonoBehaviour
                     EnemyHealth.TakeDamage();
 
                 }
+                else
+                {
+
+                    RaycastHit2D wallhit = Physics2D.Raycast(transform.position, (Vector2.left), 2.5f, BreakableWall);
+                    if (wallhit)
+                    {
+
+                        BreakableWallHealth = wallhit.transform.gameObject.GetComponent<BreakableWallDestruction>();
+                        BreakableWallHealth.TakeDamage();
+
+                    }
+
+                }
 
             }
             else
@@ -76,6 +91,19 @@ public class CJAttack : MonoBehaviour
 
                     EnemyHealth = hit.transform.gameObject.GetComponent<EnemyValues>();
                     EnemyHealth.TakeDamage();
+
+                }
+                else
+                {
+
+                    RaycastHit2D wallhit = Physics2D.Raycast(transform.position, (Vector2.right), 2.5f, BreakableWall);
+                    if (wallhit)
+                    {
+
+                        BreakableWallHealth = wallhit.transform.gameObject.GetComponent<BreakableWallDestruction>();
+                        BreakableWallHealth.TakeDamage();
+
+                    }
 
                 }
 
