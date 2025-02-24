@@ -18,6 +18,7 @@ public class CJValues : MonoBehaviour
     private HealthDisplay Display3;
     private HealthDisplay Display4;
     private HealthDisplay Display5;
+    public bool Immunity;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +30,7 @@ public class CJValues : MonoBehaviour
         Display3 = Heart3.GetComponent<HealthDisplay>();
         Display4 = Heart4.GetComponent<HealthDisplay>();
         Display5 = Heart5.GetComponent<HealthDisplay>();
+        Immunity = false;
 
     }
 
@@ -40,21 +42,35 @@ public class CJValues : MonoBehaviour
 
     public void TakeDamage()
     {
-
-        Health -= 1;
-
-        if (Health <= 0)
+        if (!Immunity)
         {
 
-            Death.Death();
+            Invoke(nameof(ImmunityREJECTED), 1);
+            Immunity = true;
+
+            Health -= 1;
+
+            if (Health <= 0)
+            {
+
+                Death.Death();
+
+            }
+
+            Display1.ShowDamage(Health);
+            Display2.ShowDamage(Health);
+            Display3.ShowDamage(Health);
+            Display4.ShowDamage(Health);
+            Display5.ShowDamage(Health);
 
         }
 
-        Display1.ShowDamage(Health);
-        Display2.ShowDamage(Health);
-        Display3.ShowDamage(Health);
-        Display4.ShowDamage(Health);
-        Display5.ShowDamage(Health);
+    }
+
+    private void ImmunityREJECTED()
+    {
+
+        Immunity = false;
 
     }
 

@@ -8,6 +8,7 @@ public class BulletGoBrrr : MonoBehaviour
     private int DirectionModifier;
     private CJBasicMovement CJ;
     private EnemyValues EnemyValues;
+    private ShootableWallDestruction ShootableWallHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -55,6 +56,13 @@ public class BulletGoBrrr : MonoBehaviour
 
             EnemyValues = collider.GetComponent<EnemyValues>();
             EnemyValues.TakeDamage();
+
+        }
+        else if (collider.gameObject.layer == 12)
+        {
+
+            ShootableWallHealth = collider.GetComponent<ShootableWallDestruction>();
+            ShootableWallHealth.TakeDamage();
 
         }
         

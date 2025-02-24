@@ -403,6 +403,7 @@ GameObject:
   m_Component:
   - component: {fileID: 158853686}
   - component: {fileID: 158853687}
+  - component: {fileID: 158853688}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -477,6 +478,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &158853688
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 158853685}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!4 &218880462 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1580218932945442359, guid: a42a8680fc54e104dac8434f4f0edcbe, type: 3}
@@ -1420,6 +1447,7 @@ MonoBehaviour:
   Heart3: {fileID: 1409435719}
   Heart4: {fileID: 1796845093}
   Heart5: {fileID: 1394506240}
+  Immunity: 0
 --- !u!114 &716016123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2388,6 +2416,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1399392903}
   - component: {fileID: 1399392904}
+  - component: {fileID: 1399392905}
   m_Layer: 0
   m_Name: Square
   m_TagString: Untagged
@@ -2462,6 +2491,32 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &1399392905
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399392902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1001 &1408452908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3561,7 +3616,9 @@ GameObject:
   m_Component:
   - component: {fileID: 1834244837}
   - component: {fileID: 1834244838}
-  m_Layer: 0
+  - component: {fileID: 1834244839}
+  - component: {fileID: 1834244840}
+  m_Layer: 12
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3635,6 +3692,34 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1834244839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834244836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5961e5cd60633b4fb46cd0c08b83330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &1834244840
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834244836}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!4 &1843165196 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1580218932945442359, guid: a42a8680fc54e104dac8434f4f0edcbe, type: 3}
@@ -3849,7 +3934,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1580218932945442359, guid: a42a8680fc54e104dac8434f4f0edcbe, type: 3}
       propertyPath: m_LocalScale.y
-      value: 5.529716
+      value: 5.5192094
       objectReference: {fileID: 0}
     - target: {fileID: 1580218932945442359, guid: a42a8680fc54e104dac8434f4f0edcbe, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3857,7 +3942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1580218932945442359, guid: a42a8680fc54e104dac8434f4f0edcbe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.03
+      value: 5.0249
       objectReference: {fileID: 0}
     - target: {fileID: 1580218932945442359, guid: a42a8680fc54e104dac8434f4f0edcbe, type: 3}
       propertyPath: m_LocalPosition.z
