@@ -17,6 +17,7 @@ public class CJAttack : MonoBehaviour
     private bool CanShoot;
     private BreakableWallDestruction BreakableWallHealth;
     [SerializeField] LayerMask BreakableWall;
+    public bool PastShootTutorial;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class CJAttack : MonoBehaviour
         AmmoCount = gameObject.GetComponent<CJValues>();
         CanAttack = true;
         CanShoot = true;
+        PastShootTutorial = false;
 
     }
 
@@ -121,7 +123,13 @@ public class CJAttack : MonoBehaviour
             {
 
                 Instantiate(Bullet, gameObject.transform);
-                AmmoCount.Ammo -= 1;
+
+                if (PastShootTutorial)
+                {
+
+                    AmmoCount.Ammo -= 1;
+
+                }
 
             }
 

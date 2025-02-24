@@ -68,7 +68,7 @@ public class CJBasicMovement : MonoBehaviour
         else
         {
 
-            Grounded = false;
+            Invoke(nameof(UnGround), 0.1f);
 
         }
 
@@ -91,4 +91,12 @@ public class CJBasicMovement : MonoBehaviour
 
 
     }
+
+    private void UnGround()
+    {
+
+        Grounded = false;
+
+    }
+
 }

@@ -1468,6 +1468,7 @@ MonoBehaviour:
   BreakableWall:
     serializedVersion: 2
     m_Bits: 2048
+  PastShootTutorial: 0
 --- !u!114 &716016124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,6 +1749,10 @@ PrefabInstance:
     - target: {fileID: 8123798038388394030, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
       propertyPath: m_Name
       value: Breakable Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123798038388394031, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
@@ -2479,7 +2484,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3704,6 +3709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5961e5cd60633b4fb46cd0c08b83330, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Player: {fileID: 716016116}
 --- !u!58 &1834244840
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -4187,6 +4193,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8123798038388394028, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 6.402521
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123798038388394028, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 16.65
       objectReference: {fileID: 0}
@@ -4229,6 +4239,10 @@ PrefabInstance:
     - target: {fileID: 8123798038388394030, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
       propertyPath: m_Name
       value: Breakable Wall
+      objectReference: {fileID: 0}
+    - target: {fileID: 8123798038388394031, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91410fae4426e1e41bf4a384f339a0ac, type: 3}
