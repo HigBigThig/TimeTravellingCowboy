@@ -1,0 +1,69 @@
+{
+    "version": 1,
+    "name": "PlayerMoveInputs",
+    "maps": [
+        {
+            "name": "PlayerMove",
+            "id": "b3247958-0f21-4a1d-9d64-95cc971c2008",
+            "actions": [
+                {
+                    "name": "XAxisRunning",
+                    "type": "Button",
+                    "id": "60cac903-4c33-446f-976a-7b2207a40f75",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fbbebf4a-a3ab-4cac-b3b8-908a15853a96",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "XAxisRunning",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "b0675884-6d0c-4a11-8642-c7d725e65e32",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "XAxisRunning",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "f3f4d6a5-7fe0-420b-9820-0b41769bc1a5",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "XAxisRunning",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "2d695232-77e0-4a2f-9a7f-582d23189e43",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "XAxisRunning",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
