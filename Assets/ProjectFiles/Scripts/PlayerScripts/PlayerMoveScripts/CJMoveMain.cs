@@ -5,17 +5,21 @@ public class CJMoveMain : MonoBehaviour
 {
 
     public InputActionReference ADMove;
+    public InputActionReference SpaceMove;
+
+    public LayerMask FloorsLayer;
 
     public float XVelocity;
     public float YVelocity;
     public int PlayerSpeed = 10;
     private RaycastHit2D Grounder;
+    private float DashTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
-
+        DashTime = 0;
 
     }
 
@@ -23,15 +27,30 @@ public class CJMoveMain : MonoBehaviour
     void Update()
     {
 
-        Grounder = Physics2D.BoxCast((transform.position)-new Vector3 (0,-0.1f), transform.localScale, 0f, Vector3.down);
+        DashTime -= Time.deltaTime;
 
-        XVelocity = (ADMove.action.ReadValue<float>())*PlayerSpeed;
+        Grounder = Physics2D.BoxCast((transform.position)+new Vector3 (0,-0.1f), transform.localScale, 0f, Vector3.down, 0, FloorsLayer);
 
 
-        if(Grounder.collider != null)
+
+        if (DashTime < 0)
         {
 
-            YVelocity -= 10 * Time.deltaTime;
+            XVelocity = (ADMove.action.ReadValue<float>()) * PlayerSpeed;
+
+        }
+        Debug.Log(Grounder.collider);
+
+        if (SpaceMove.action.ReadValue<float>() > 0.5f)
+        {
+
+            YVelocity = 15;
+
+        }
+        else if(Grounder.collider == null)
+        {
+
+            YVelocity -= 85 * Time.deltaTime;
 
         }
         else

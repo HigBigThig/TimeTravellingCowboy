@@ -101,6 +101,16 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""Jumping"",
+                    ""type"": ""Button"",
+                    ""id"": ""30b941d6-600c-44f9-aa14-540aee4ee526"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -147,6 +157,28 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""action"": ""XAxisRunning"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f9c5757c-7b14-4d8a-b5aa-188e26c10d88"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jumping"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c727af4b-6cc4-4a61-bfdc-b6ae141fe065"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jumping"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -156,6 +188,7 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         // PlayerMove
         m_PlayerMove = asset.FindActionMap("PlayerMove", throwIfNotFound: true);
         m_PlayerMove_XAxisRunning = m_PlayerMove.FindAction("XAxisRunning", throwIfNotFound: true);
+        m_PlayerMove_Jumping = m_PlayerMove.FindAction("Jumping", throwIfNotFound: true);
     }
 
     ~@PlayerMoveInputs()
@@ -237,6 +270,7 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
     private readonly InputActionMap m_PlayerMove;
     private List<IPlayerMoveActions> m_PlayerMoveActionsCallbackInterfaces = new List<IPlayerMoveActions>();
     private readonly InputAction m_PlayerMove_XAxisRunning;
+    private readonly InputAction m_PlayerMove_Jumping;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -252,6 +286,10 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/XAxisRunning".
         /// </summary>
         public InputAction @XAxisRunning => m_Wrapper.m_PlayerMove_XAxisRunning;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/Jumping".
+        /// </summary>
+        public InputAction @Jumping => m_Wrapper.m_PlayerMove_Jumping;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -281,6 +319,9 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @XAxisRunning.started += instance.OnXAxisRunning;
             @XAxisRunning.performed += instance.OnXAxisRunning;
             @XAxisRunning.canceled += instance.OnXAxisRunning;
+            @Jumping.started += instance.OnJumping;
+            @Jumping.performed += instance.OnJumping;
+            @Jumping.canceled += instance.OnJumping;
         }
 
         /// <summary>
@@ -295,6 +336,9 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @XAxisRunning.started -= instance.OnXAxisRunning;
             @XAxisRunning.performed -= instance.OnXAxisRunning;
             @XAxisRunning.canceled -= instance.OnXAxisRunning;
+            @Jumping.started -= instance.OnJumping;
+            @Jumping.performed -= instance.OnJumping;
+            @Jumping.canceled -= instance.OnJumping;
         }
 
         /// <summary>
@@ -342,5 +386,12 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnXAxisRunning(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Jumping" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJumping(InputAction.CallbackContext context);
     }
 }
