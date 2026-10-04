@@ -14,17 +14,19 @@ public class CJMoveMain : MonoBehaviour
     public float YVelocity;
     public int PlayerSpeed = 10;
     private RaycastHit2D Grounder;
-    private RaycastHit2D LeftWaller;
-    private RaycastHit2D RightWaller;
+    private RaycastHit2D LRWaller;
+    private RaycastHit2D Roofer;
     private float DashTime;
     private float JumpTime;
     private bool Jumping;
+    private float RoofTime;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
 
         DashTime = 0;
+        RoofTime = 0; 
 
     }
 
@@ -32,13 +34,15 @@ public class CJMoveMain : MonoBehaviour
     void Update()
     {
 
+        RoofTime -= Time.deltaTime;
+
         JumpTime -= Time.deltaTime;
 
         DashTime -= Time.deltaTime;
 
         Grounder = Physics2D.BoxCast((transform.position) + new Vector3 (0,-0.1f), transform.localScale, 0f, Vector3.down, 0, FloorsLayer);
-        LeftWaller = Physics2D.BoxCast((transform.position) + new Vector3(-0.1f, 0), transform.localScale - new Vector3(0, 0.1f), 0f, Vector3.down, 0, FloorsLayer);
-        RightWaller = Physics2D.BoxCast((transform.position) + new Vector3(0.1f, 0), transform.localScale - new Vector3(0, 0.1f), 0f, Vector3.down, 0, FloorsLayer);
+        Roofer = Physics2D.BoxCast((transform.position) + new Vector3(0, 0.1f), transform.localScale, 0f, Vector3.down, 0, FloorsLayer);
+        LRWaller = Physics2D.BoxCast((transform.position) + new Vector3((0.1f*((ADMove.action.ReadValue<float>()))), 0), transform.localScale - new Vector3(0, 0.1f), 0f, Vector3.down, 0, FloorsLayer);
 
         if (JumpTime<0)
         {
@@ -51,19 +55,30 @@ public class CJMoveMain : MonoBehaviour
         if (DashTime < 0)
         {
 
-            if (LeftWaller.collider != null)
+            if (LRWaller.collider == null)
             {
 
-
+                XVelocity = (ADMove.action.ReadValue<float>()) * PlayerSpeed;
 
             }
+            else 
+            {
 
-            XVelocity = (ADMove.action.ReadValue<float>()) * PlayerSpeed;
+                XVelocity = 0;
+
+            }
 
         }
         Debug.Log(Grounder.collider);
 
-        if ((SpaceMove.action.ReadValue<float>() > 0.5f) && Grounder.collider!=null)
+        if (Roofer.collider != null && RoofTime<0)
+        {
+
+            YVelocity = 0;
+            RoofTime = 0.2f;
+
+        }
+        else if ((SpaceMove.action.ReadValue<float>() > 0.5f) && Grounder.collider!=null)
         {
 
             YVelocity = 15;
