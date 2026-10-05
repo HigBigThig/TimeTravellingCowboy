@@ -111,20 +111,19 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""42780fdc-9f7d-495c-b33c-d53edd03aff9"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""fbbebf4a-a3ab-4cac-b3b8-908a15853a96"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""XAxisRunning"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": ""1D Axis"",
                     ""id"": ""b0675884-6d0c-4a11-8642-c7d725e65e32"",
@@ -160,8 +159,8 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""f9c5757c-7b14-4d8a-b5aa-188e26c10d88"",
-                    ""path"": """",
+                    ""id"": ""c727af4b-6cc4-4a61-bfdc-b6ae141fe065"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -171,12 +170,12 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""c727af4b-6cc4-4a61-bfdc-b6ae141fe065"",
-                    ""path"": ""<Keyboard>/space"",
+                    ""id"": ""d4fad508-8a14-4db4-8a8d-93230a36d721"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Jumping"",
+                    ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -189,6 +188,7 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         m_PlayerMove = asset.FindActionMap("PlayerMove", throwIfNotFound: true);
         m_PlayerMove_XAxisRunning = m_PlayerMove.FindAction("XAxisRunning", throwIfNotFound: true);
         m_PlayerMove_Jumping = m_PlayerMove.FindAction("Jumping", throwIfNotFound: true);
+        m_PlayerMove_Dash = m_PlayerMove.FindAction("Dash", throwIfNotFound: true);
     }
 
     ~@PlayerMoveInputs()
@@ -271,6 +271,7 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
     private List<IPlayerMoveActions> m_PlayerMoveActionsCallbackInterfaces = new List<IPlayerMoveActions>();
     private readonly InputAction m_PlayerMove_XAxisRunning;
     private readonly InputAction m_PlayerMove_Jumping;
+    private readonly InputAction m_PlayerMove_Dash;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -290,6 +291,10 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/Jumping".
         /// </summary>
         public InputAction @Jumping => m_Wrapper.m_PlayerMove_Jumping;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/Dash".
+        /// </summary>
+        public InputAction @Dash => m_Wrapper.m_PlayerMove_Dash;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -322,6 +327,9 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @Jumping.started += instance.OnJumping;
             @Jumping.performed += instance.OnJumping;
             @Jumping.canceled += instance.OnJumping;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         /// <summary>
@@ -339,6 +347,9 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @Jumping.started -= instance.OnJumping;
             @Jumping.performed -= instance.OnJumping;
             @Jumping.canceled -= instance.OnJumping;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         /// <summary>
@@ -393,5 +404,12 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnJumping(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Dash" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDash(InputAction.CallbackContext context);
     }
 }
