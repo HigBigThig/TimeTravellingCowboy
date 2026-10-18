@@ -66,12 +66,13 @@ public class CJMoveMain : MonoBehaviour
         if (DashMove.action.ReadValue<float>()>0.5f)
         {
 
-            Dasher = Physics2D.BoxCast((transform.position), 0.95f * transform.localScale, 0, new Vector3(FaceLeft, 0), 5, FloorsLayer);
+            Dasher = Physics2D.BoxCast((transform.position), 0.95f * transform.localScale, 0, new Vector3(-FaceLeft, 0), 5, FloorsLayer);
             if (Dasher.collider != null && (DashCooldown < 0))
             {
 
                 XVelocity = -25 * FaceLeft;
-                DashTime = 0.04f * ((Dasher.distance)-0.5f);
+                DashTime = 0.04f * ((Dasher.distance)-0.1f);
+                Debug.Log(Dasher.distance);
                 DashCooldown = 1;
             
             }
@@ -105,7 +106,6 @@ public class CJMoveMain : MonoBehaviour
             }
 
         }
-        Debug.Log(Grounder.collider);
 
 
         if (Roofer.collider != null && RoofTime < 0)
