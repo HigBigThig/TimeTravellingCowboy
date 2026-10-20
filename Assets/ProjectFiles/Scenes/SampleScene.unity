@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -812,6 +813,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9876b8f9761824c4d88f3f6e56e04e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraTracking
+  LeftBound: -3
+  RightBound: 3
+  UpBound: 4
+  DownBound: 1
+  PlayerTracker: {fileID: 1481502710}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1627,6 +1645,7 @@ MonoBehaviour:
   ADMove: {fileID: -4621851910355546429, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
   SpaceMove: {fileID: -3985919265676282694, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
   DashMove: {fileID: 9131138420307557408, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
+  TimeTravel: {fileID: 8974504522177061216, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
   FloorsLayer:
     serializedVersion: 2
     m_Bits: 64

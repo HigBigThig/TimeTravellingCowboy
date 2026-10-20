@@ -121,6 +121,16 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""TimeTravel"",
+                    ""type"": ""Button"",
+                    ""id"": ""958f6e6f-2bbc-4dc8-a808-5aff862e8105"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -178,6 +188,17 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""action"": ""Dash"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e45450e0-e7a3-4acf-bf91-8bfe5401be04"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""TimeTravel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -189,6 +210,7 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         m_PlayerMove_XAxisRunning = m_PlayerMove.FindAction("XAxisRunning", throwIfNotFound: true);
         m_PlayerMove_Jumping = m_PlayerMove.FindAction("Jumping", throwIfNotFound: true);
         m_PlayerMove_Dash = m_PlayerMove.FindAction("Dash", throwIfNotFound: true);
+        m_PlayerMove_TimeTravel = m_PlayerMove.FindAction("TimeTravel", throwIfNotFound: true);
     }
 
     ~@PlayerMoveInputs()
@@ -272,6 +294,7 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMove_XAxisRunning;
     private readonly InputAction m_PlayerMove_Jumping;
     private readonly InputAction m_PlayerMove_Dash;
+    private readonly InputAction m_PlayerMove_TimeTravel;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -295,6 +318,10 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/Dash".
         /// </summary>
         public InputAction @Dash => m_Wrapper.m_PlayerMove_Dash;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/TimeTravel".
+        /// </summary>
+        public InputAction @TimeTravel => m_Wrapper.m_PlayerMove_TimeTravel;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -330,6 +357,9 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @TimeTravel.started += instance.OnTimeTravel;
+            @TimeTravel.performed += instance.OnTimeTravel;
+            @TimeTravel.canceled += instance.OnTimeTravel;
         }
 
         /// <summary>
@@ -350,6 +380,9 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @TimeTravel.started -= instance.OnTimeTravel;
+            @TimeTravel.performed -= instance.OnTimeTravel;
+            @TimeTravel.canceled -= instance.OnTimeTravel;
         }
 
         /// <summary>
@@ -411,5 +444,12 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnDash(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "TimeTravel" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTimeTravel(InputAction.CallbackContext context);
     }
 }

@@ -5,8 +5,6 @@ public class ToDoList : MonoBehaviour
 
     //To Do List
 
-    //Take Time Travel
-    //Make Camera Tracking within level bounds
     //Make Enemy one
     //Make Enemy two
     //Make Enemy three
@@ -15,6 +13,7 @@ public class ToDoList : MonoBehaviour
     //Make gun attack
     //Create Health system
     //Create Upgrades
+    //Create Room Transitions
     //Create Level 1
     //Create Level 2
     //Create Level 3

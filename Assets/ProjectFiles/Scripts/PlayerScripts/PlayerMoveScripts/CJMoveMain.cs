@@ -8,6 +8,7 @@ public class CJMoveMain : MonoBehaviour
     public InputActionReference ADMove;
     public InputActionReference SpaceMove;
     public InputActionReference DashMove;
+    public InputActionReference TimeTravel;
 
     public LayerMask FloorsLayer;
 
@@ -26,6 +27,7 @@ public class CJMoveMain : MonoBehaviour
     private bool DoubleJump;
     private bool WasJump;
     private float RoofTime;
+    private float TimeTime;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,12 +37,15 @@ public class CJMoveMain : MonoBehaviour
         DashTime = 0;
         RoofTime = 0; 
         DashCooldown = 0;
+        TimeTime = 0;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        TimeTime -= Time.deltaTime;
 
         RoofTime -= Time.deltaTime;
 
@@ -54,6 +59,25 @@ public class CJMoveMain : MonoBehaviour
         Roofer = Physics2D.BoxCast((transform.position) + new Vector3(0, 0.1f), transform.localScale, 0f, Vector3.down, 0, FloorsLayer);
         LRWaller = Physics2D.BoxCast((transform.position) + new Vector3((0.1f*((ADMove.action.ReadValue<float>()))), 0), transform.localScale - new Vector3(0, 0.1f), 0f, Vector3.down, 0, FloorsLayer);
 
+        if ((TimeTravel.action.ReadValue<float>() > 0.5f) && TimeTime < 0)
+        {
+
+            TimeTime = 1;
+
+            if (transform.position.x < 50)
+            {
+
+                transform.position += new Vector3(100, 0, 0);
+
+            }
+            else
+            {
+
+                transform.position -= new Vector3(100, 0, 0);
+
+            }
+
+        }
 
         if (JumpTime<0)
         {
