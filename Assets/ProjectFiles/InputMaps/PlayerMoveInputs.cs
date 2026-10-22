@@ -131,6 +131,26 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""initialStateCheck"": false,
                     ""priority"": 0
+                },
+                {
+                    ""name"": ""MeleeAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""80e69dd8-02c2-43ff-9498-4999b6d3b65e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
+                },
+                {
+                    ""name"": ""RangeAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d2f187a-0898-4c3e-8e2d-cf46f51835b4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false,
+                    ""priority"": 0
                 }
             ],
             ""bindings"": [
@@ -199,6 +219,28 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
                     ""action"": ""TimeTravel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bdf67c07-fc9f-4457-9b37-6b989f262a0d"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MeleeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""77e290d4-6cdd-4d03-b140-a34057ed9159"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""RangeAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -211,6 +253,8 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         m_PlayerMove_Jumping = m_PlayerMove.FindAction("Jumping", throwIfNotFound: true);
         m_PlayerMove_Dash = m_PlayerMove.FindAction("Dash", throwIfNotFound: true);
         m_PlayerMove_TimeTravel = m_PlayerMove.FindAction("TimeTravel", throwIfNotFound: true);
+        m_PlayerMove_MeleeAttack = m_PlayerMove.FindAction("MeleeAttack", throwIfNotFound: true);
+        m_PlayerMove_RangeAttack = m_PlayerMove.FindAction("RangeAttack", throwIfNotFound: true);
     }
 
     ~@PlayerMoveInputs()
@@ -295,6 +339,8 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMove_Jumping;
     private readonly InputAction m_PlayerMove_Dash;
     private readonly InputAction m_PlayerMove_TimeTravel;
+    private readonly InputAction m_PlayerMove_MeleeAttack;
+    private readonly InputAction m_PlayerMove_RangeAttack;
     /// <summary>
     /// Provides access to input actions defined in input action map "PlayerMove".
     /// </summary>
@@ -322,6 +368,14 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "PlayerMove/TimeTravel".
         /// </summary>
         public InputAction @TimeTravel => m_Wrapper.m_PlayerMove_TimeTravel;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/MeleeAttack".
+        /// </summary>
+        public InputAction @MeleeAttack => m_Wrapper.m_PlayerMove_MeleeAttack;
+        /// <summary>
+        /// Provides access to the underlying input action "PlayerMove/RangeAttack".
+        /// </summary>
+        public InputAction @RangeAttack => m_Wrapper.m_PlayerMove_RangeAttack;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -360,6 +414,12 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @TimeTravel.started += instance.OnTimeTravel;
             @TimeTravel.performed += instance.OnTimeTravel;
             @TimeTravel.canceled += instance.OnTimeTravel;
+            @MeleeAttack.started += instance.OnMeleeAttack;
+            @MeleeAttack.performed += instance.OnMeleeAttack;
+            @MeleeAttack.canceled += instance.OnMeleeAttack;
+            @RangeAttack.started += instance.OnRangeAttack;
+            @RangeAttack.performed += instance.OnRangeAttack;
+            @RangeAttack.canceled += instance.OnRangeAttack;
         }
 
         /// <summary>
@@ -383,6 +443,12 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
             @TimeTravel.started -= instance.OnTimeTravel;
             @TimeTravel.performed -= instance.OnTimeTravel;
             @TimeTravel.canceled -= instance.OnTimeTravel;
+            @MeleeAttack.started -= instance.OnMeleeAttack;
+            @MeleeAttack.performed -= instance.OnMeleeAttack;
+            @MeleeAttack.canceled -= instance.OnMeleeAttack;
+            @RangeAttack.started -= instance.OnRangeAttack;
+            @RangeAttack.performed -= instance.OnRangeAttack;
+            @RangeAttack.canceled -= instance.OnRangeAttack;
         }
 
         /// <summary>
@@ -451,5 +517,19 @@ public partial class @PlayerMoveInputs: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTimeTravel(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "MeleeAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnMeleeAttack(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "RangeAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnRangeAttack(InputAction.CallbackContext context);
     }
 }

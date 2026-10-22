@@ -1505,6 +1505,7 @@ GameObject:
   - component: {fileID: 1481502716}
   - component: {fileID: 1481502717}
   - component: {fileID: 1481502720}
+  - component: {fileID: 1481502721}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1734,6 +1735,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1481502721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481502710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc41ba2a2a2dbd41a04bb31107fbb99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CJAttackMain
+  MeleeKill: {fileID: 1798719483099408843, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
+  RangeKill: {fileID: 5447734392226977521, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
+  BulletPrefab: {fileID: 411283929231774282, guid: 24afa61262e9b03479476b876638e7f0, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
