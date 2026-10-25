@@ -9,8 +9,6 @@ public class ToDoList : MonoBehaviour
     //Make Enemy two
     //Make Enemy three
     //Make enemy four
-    //Make melee attack
-    //Make gun attack
     //Create Health system
     //Create Upgrades
     //Create Room Transitions

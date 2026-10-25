@@ -1806,6 +1806,7 @@ MonoBehaviour:
   XVelocity: 0
   YVelocity: 0
   PlayerSpeed: 10
+  FaceLeft: 0
 --- !u!212 &1481502717
 SpriteRenderer:
   serializedVersion: 3
@@ -1903,6 +1904,7 @@ MonoBehaviour:
   MeleeKill: {fileID: 1798719483099408843, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
   RangeKill: {fileID: 5447734392226977521, guid: 2405660b43902664b804d8cdf4a2093b, type: 3}
   BulletPrefab: {fileID: 411283929231774282, guid: 24afa61262e9b03479476b876638e7f0, type: 3}
+  SlashPrefab: {fileID: 5319295325289036512, guid: 054ab3c1bd7dd7041ab97d87955b19db, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

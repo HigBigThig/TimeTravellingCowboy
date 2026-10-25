@@ -9,6 +9,7 @@ public class CJAttackMain : MonoBehaviour
     public InputActionReference RangeKill;
     private float AttackTime;
     public GameObject BulletPrefab;
+    public GameObject SlashPrefab;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -56,6 +57,9 @@ public class CJAttackMain : MonoBehaviour
     {
 
         Debug.Log("GOTCHA");
+        GameObject SlashNOW = Instantiate(SlashPrefab);
+        SlashNOW.transform.position = transform.position - new Vector3(1.3f*gameObject.GetComponent<CJMoveMain>().FaceLeft,0,0);
+
 
     }
 
