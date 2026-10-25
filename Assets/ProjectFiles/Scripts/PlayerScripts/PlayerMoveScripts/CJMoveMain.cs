@@ -20,7 +20,7 @@ public class CJMoveMain : MonoBehaviour
     private RaycastHit2D Roofer;
     private RaycastHit2D Dasher;
     private float DashTime;
-    private int FaceLeft;
+    public int FaceLeft;
     private float DashCooldown;
     private float JumpTime;
     private bool Jumping;
@@ -38,6 +38,7 @@ public class CJMoveMain : MonoBehaviour
         RoofTime = 0; 
         DashCooldown = 0;
         TimeTime = 0;
+        FaceLeft = 1;
 
     }
 

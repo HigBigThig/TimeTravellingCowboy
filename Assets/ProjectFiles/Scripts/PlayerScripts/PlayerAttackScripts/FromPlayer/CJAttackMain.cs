@@ -65,6 +65,8 @@ public class CJAttackMain : MonoBehaviour
         Debug.Log("POW");
         GameObject BulletNOW = Instantiate(BulletPrefab);
         BulletNOW.transform.position = transform.position;
+        BulletBehavior bulletmove = BulletNOW.GetComponent<BulletBehavior>();
+        bulletmove.BulletLeft = gameObject.GetComponent<CJMoveMain>().FaceLeft;
 
     }
 }
