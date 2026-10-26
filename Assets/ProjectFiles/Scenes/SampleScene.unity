@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 551993128}
   - component: {fileID: 551993129}
   m_Layer: 7
-  m_Name: Square
+  m_Name: EnemyDesertGround
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
