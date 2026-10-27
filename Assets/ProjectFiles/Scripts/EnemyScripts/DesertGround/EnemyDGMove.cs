@@ -21,8 +21,8 @@ public class EnemyDGMove : MonoBehaviour
     void Update()
     {
 
-        GroundCheck = Physics2D.Raycast(transform.position + new Vector3(-EnemyFaceLeft*1,-1,0), new Vector2(-EnemyFaceLeft, 0), 0.2f);
-        FrontCheck = Physics2D.Raycast(transform.position + new Vector3(-EnemyFaceLeft * 1, 0, 0), new Vector2(-EnemyFaceLeft, 0), 0.2f);
+        GroundCheck = Physics2D.Raycast(transform.position + new Vector3(-EnemyFaceLeft*1,-1,0), new Vector2(-EnemyFaceLeft, 0), 0.05f);
+        FrontCheck = Physics2D.Raycast(transform.position + new Vector3(-EnemyFaceLeft * 0.95f, 0, 0), new Vector2(-EnemyFaceLeft, 0), 0.05f, Bounces);
 
         if (GroundCheck.collider == null || GroundCheck.collider.gameObject.layer != 6)
         {
@@ -33,12 +33,22 @@ public class EnemyDGMove : MonoBehaviour
         else if (FrontCheck.collider != null)
         {
 
-            if (FrontCheck.collider.gameObject != gameObject && FrontCheck.collider.gameObject.layer == Bounces)
-            {
+            EnemyFaceLeft *= -1;
 
-                EnemyFaceLeft *= -1;
+        }
 
-            }
+        transform.position += new Vector3(-EnemyFaceLeft*2,0,0)*Time.deltaTime;
+
+    }
+
+    void OnTriggerStay2D(Collider2D collider)
+    {
+
+        if (collider.gameObject.layer == 3)
+        {
+
+            StatManager PlayerHealth = collider.gameObject.GetComponent<StatManager>();
+            PlayerHealth.HurtPlayer(1);
 
         }
 

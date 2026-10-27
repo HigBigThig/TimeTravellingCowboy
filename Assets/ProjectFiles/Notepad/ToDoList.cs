@@ -5,12 +5,9 @@ public class ToDoList : MonoBehaviour
 
     //To Do List
 
-    //Make Enemy one
     //Make Enemy two
     //Make Enemy three
     //Make enemy four
-    //Create Health system
-    //Create Upgrades
     //Create Room Transitions
     //Create Level 1
     //Create Level 2
@@ -20,6 +17,12 @@ public class ToDoList : MonoBehaviour
     //Create Level 6
     //Create Level 7
     //Create Main Town
+    //Make Health Bar HUD
+    //Make Damage Jolt
+    //Add Visual Effects
+    //Add Music
+    //Everything Art Related
+    //Make Upgrade Effects
     //
     //
     //
@@ -28,7 +31,8 @@ public class ToDoList : MonoBehaviour
     //
     //
     //
-
-
+    //
+    //
+    //
 
 }

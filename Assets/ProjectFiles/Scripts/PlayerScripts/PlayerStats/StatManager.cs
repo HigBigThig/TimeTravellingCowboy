@@ -14,6 +14,7 @@ public class StatManager : MonoBehaviour
     public bool TimeTravel;
     public bool Dash;
     public bool DoubleJump;
+    public float IFrames;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,23 +31,32 @@ public class StatManager : MonoBehaviour
         TimeTravel = false;
         Dash = false;
         DoubleJump = false;
+        IFrames = 0;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        IFrames -= Time.deltaTime;
         
     }
 
     public void HurtPlayer(int Damage)
     {
-
-        PlayerHealth -= Damage;
-        if (PlayerHealth < 0)
+        if (IFrames < 0)
         {
+            PlayerHealth -= Damage;
+            Debug.Log("OUCH");
+            if (PlayerHealth <= 0)
+            {
 
-            Death();
+                Death();
+
+            }
+
+            IFrames = 1;
 
         }
 
@@ -58,4 +68,26 @@ public class StatManager : MonoBehaviour
         Debug.Log("DEAD");
 
     }
+
+    public void MaskShardCollect()
+    {
+
+        Debug.Log("Helth!");
+
+    }
+
+    public void GunUpgradeCollect()
+    {
+
+        Debug.Log("BETTERShoots!");
+
+    }
+
+    public void KnifeUpgradeCollect()
+    {
+
+        Debug.Log("BetterSTABS!");
+
+    }
+
 }
